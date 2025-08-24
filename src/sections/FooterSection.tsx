@@ -1,5 +1,6 @@
 import AutoProdLogo from '../../src/assets/AutoProdLogo.svg'
 import { useLanguage } from '../contexts/LanguageContext'
+import { STRINGS } from '../constants/strings'
 
 const FooterSection = () => {
   const { t } = useLanguage()
@@ -93,15 +94,15 @@ const FooterSection = () => {
             <div className="space-y-2.5 sm:space-y-5 lg:space-y-4">
               <div>
                 <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">E-Mail</div>
-                <div className="text-white font-medium text-sm sm:text-lg lg:text-base">contact@autoprod.de</div>
+                <div className="text-white font-medium text-sm sm:text-lg lg:text-base">{STRINGS.EMAIL}</div>
               </div>
               <div>
                 <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">Telefon</div>
-                <div className="text-white font-medium text-sm sm:text-lg lg:text-base">+49 (0) 123 456 789</div>
+                <div className="text-white font-medium text-sm sm:text-lg lg:text-base">{STRINGS.PHONE}</div>
               </div>
               <div>
                 <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">Standort</div>
-                <div className="text-white font-medium text-sm sm:text-lg lg:text-base">Bielefeld, Deutschland</div>
+                <div className="text-white font-medium text-sm sm:text-lg lg:text-base">{STRINGS.ADDRESS_CITY}</div>
               </div>
             </div>
 

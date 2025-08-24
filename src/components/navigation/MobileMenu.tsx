@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo, useEffect, useRef } from 'react'
+import { useCallback, useMemo, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import LanguageToggle from '../components/LanguageToggle'
-import { useLanguage } from '../contexts/LanguageContext'
+import LanguageToggle from './LanguageToggle'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 // TypeScript Interfaces
 interface MenuItem {
@@ -16,12 +16,12 @@ interface MobileMenuProps {
   activeMenu: string
 }
 
-const MobileMenu = React.memo<MobileMenuProps>(({ 
+const MobileMenu = ({ 
   isOpen, 
   onClose, 
   onMenuClick, 
   activeMenu 
-}) => {
+}: MobileMenuProps) => {
   const { t } = useLanguage()
   const menuRef = useRef<HTMLDivElement>(null)
   const itemsRef = useRef<(HTMLDivElement | null)[]>([])
@@ -156,9 +156,7 @@ const MobileMenu = React.memo<MobileMenuProps>(({
       </div>
     </div>
   )
-})
-
-MobileMenu.displayName = 'MobileMenu'
+}
 
 export default MobileMenu
 export type { MenuItem, MobileMenuProps }

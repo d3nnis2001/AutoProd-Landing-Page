@@ -1,4 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext'
+import { STRINGS } from '../constants/strings'
 import AutoProdLogo from '../assets/AutoProdLogo.svg'
 
 const ImpressumPage = () => {
@@ -27,18 +28,18 @@ const ImpressumPage = () => {
               <section>
                 <h2 className="text-xl font-bold text-white mb-4">Angaben gemäß § 5 TMG</h2>
                 <div className="space-y-2">
-                  <p><strong>Dennis Schielke</strong></p>
-                  <p>Musterstraße 123</p>
-                  <p>33602 Bielefeld</p>
-                  <p>Deutschland</p>
+                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
+                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
+                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
+                  <p>{STRINGS.LEGAL_ADDRESS.country}</p>
                 </div>
               </section>
 
               <section>
                 <h2 className="text-xl font-bold text-white mb-4">Kontakt</h2>
                 <div className="space-y-2">
-                  <p><strong>E-Mail:</strong> contact@autoprod.de</p>
-                  <p><strong>Telefon:</strong> +49 (0) 123 456 789</p>
+                  <p><strong>E-Mail:</strong> {STRINGS.EMAIL}</p>
+                  <p><strong>Telefon:</strong> {STRINGS.PHONE}</p>
                 </div>
               </section>
 
@@ -68,9 +69,9 @@ const ImpressumPage = () => {
               <section>
                 <h2 className="text-xl font-bold text-white mb-4">Information pursuant to § 5 TMG</h2>
                 <div className="space-y-2">
-                  <p><strong>Dennis Schielke</strong></p>
-                  <p>Musterstraße 123</p>
-                  <p>33602 Bielefeld</p>
+                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
+                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
+                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
                   <p>Germany</p>
                 </div>
               </section>
@@ -78,8 +79,8 @@ const ImpressumPage = () => {
               <section>
                 <h2 className="text-xl font-bold text-white mb-4">Contact</h2>
                 <div className="space-y-2">
-                  <p><strong>Email:</strong> contact@autoprod.de</p>
-                  <p><strong>Phone:</strong> +49 (0) 123 456 789</p>
+                  <p><strong>Email:</strong> {STRINGS.EMAIL}</p>
+                  <p><strong>Phone:</strong> {STRINGS.PHONE}</p>
                 </div>
               </section>
 

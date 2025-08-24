@@ -1,5 +1,16 @@
 import type { ReactElement } from 'react'
 
+// Hero Section Types
+export interface HeroSectionProps {
+  onGetStartedClick?: () => void
+  onContactClick?: () => void
+}
+
+export interface MenuItem {
+  name: string
+  href: string
+}
+
 // Service Types
 export interface Service {
   id: string
@@ -13,6 +24,25 @@ export interface Service {
 export interface ServiceMetric {
   value: string
   label: string
+}
+
+export interface ServiceStat {
+  [key: string]: string | undefined
+}
+
+export interface ServiceStatsLabels {
+  [key: string]: string | undefined
+}
+
+export interface DetailedService {
+  id: string
+  title: string
+  description: string
+  icon: ReactElement
+  features: string[]
+  examples: string[]
+  stats: ServiceStat
+  statsLabels: ServiceStatsLabels
 }
 
 export interface InteractiveService extends Service {

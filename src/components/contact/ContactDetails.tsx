@@ -1,5 +1,5 @@
-import { useLanguage } from '../contexts/LanguageContext'
-import { STRINGS } from '../constants/strings'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { STRINGS } from '../../constants/strings'
 
 const ContactDetails = () => {
   const { t, language } = useLanguage()

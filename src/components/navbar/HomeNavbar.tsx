@@ -1,14 +1,9 @@
 import React, { useEffect, useRef, useCallback, useMemo } from 'react'
 import { gsap } from 'gsap'
-import AutoProdLogo from '../../src/assets/AutoProdLogo.svg'
-import LanguageToggle from '../components/LanguageToggle'
-import { useLanguage } from '../contexts/LanguageContext'
-
-// TypeScript Interfaces
-interface MenuItem {
-  name: string
-  href: string
-}
+import AutoProdLogo from '../../assets/AutoProdLogo.svg'
+import LanguageToggle from '../LanguageToggle'
+import { useLanguage } from '../../contexts/LanguageContext'
+import type { MenuItem } from '../../types'
 
 interface HomeNavbarProps {
   activeMenu: string
@@ -143,4 +138,4 @@ const HomeNavbar = React.memo<HomeNavbarProps>(({
 HomeNavbar.displayName = 'HomeNavbar'
 
 export default HomeNavbar
-export type { MenuItem, HomeNavbarProps }
+export type { HomeNavbarProps }

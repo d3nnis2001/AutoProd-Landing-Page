@@ -2,9 +2,9 @@ export const STRINGS = {
   // Firma & Kontakt
   COMPANY_NAME: 'AutoProd',
   EMAIL: 'contact@autoprod.de',
-  PHONE: '+49 (0) 123 456 789',
-  ADDRESS_STREET: 'Musterstraße 123',
-  ADDRESS_CITY: '33602 Bielefeld',
+  PHONE: '+49 1590 6741594',
+  ADDRESS_STREET: 'Uelzener Str. 16',
+  ADDRESS_CITY: '33719 Bielefeld',
   ADDRESS_COUNTRY_DE: 'Deutschland',
   ADDRESS_COUNTRY_EN: 'Germany',
   
@@ -21,6 +21,14 @@ export const STRINGS = {
   VAT_ID: 'DE123456789',
   ECONOMIC_ID: '12345678901',
   
+  // Legal Data für Impressum
+  LEGAL_ADDRESS: {
+    street: 'Uelzener Str. 16',
+    zipCode: '33719',
+    city: 'Bielefeld',
+    country: 'Deutschland'
+  },
+  
   // Team Mitglieder
   TEAM: {
     DENNIS: {
@@ -32,16 +40,16 @@ export const STRINGS = {
       description_en: 'Full-Stack Automation'
     },
     PHILIP: {
-      name: 'Philip der Süße',
-      initials: 'PG',
+      name: 'Philip Lindinger',
+      initials: 'PL',
       role_de: 'CFO',
       role_en: 'CFO',
       description_de: 'Finanz & Buchhaltung',
       description_en: 'Finance & Accounting'
     },
     MAX: {
-      name: 'Max Krämer',
-      initials: 'MK',
+      name: 'David Büchsenschütz',
+      initials: 'DB',
       role_de: 'COO & Operations',
       role_en: 'COO & Operations',
       description_de: 'Prozessoptimierung',
@@ -51,8 +59,8 @@ export const STRINGS = {
   
   // Success Messages
   SUCCESS_MESSAGES: {
-    MESSAGE_SENT_DE: 'Nachricht gesendet! ✓',
-    MESSAGE_SENT_EN: 'Message sent! ✓',
+    MESSAGE_SENT_DE: 'Nachricht gesendet!',
+    MESSAGE_SENT_EN: 'Message sent!',
     RESPONSE_PROMISE_DE: 'Wir melden uns bald bei Ihnen.',
     RESPONSE_PROMISE_EN: 'We will get back to you soon.',
     QUICK_RESPONSE_DE: 'Schnelle Antwort garantiert',

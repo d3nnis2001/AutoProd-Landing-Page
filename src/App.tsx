@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomepageModular from './HomepageModular';
-import ImpressumPage from './pages/ImpressumPage';
-import DatenschutzPage from './pages/DatenschutzPage';
+import HomepageModular from './LandingPage';
+import ImpressumPage from './subpages/ImpressumPage';
+import DatenschutzPage from './subpages/DatenschutzPage';
 
 const router = createBrowserRouter([
   {

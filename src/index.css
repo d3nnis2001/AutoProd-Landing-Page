@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+/* Global styles for consistent black background */
+html {
+  background-color: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+#root {
+  background-color: #000000;
+  min-height: 100vh;
+}

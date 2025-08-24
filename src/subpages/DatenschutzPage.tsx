@@ -1,4 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext'
+import { STRINGS } from '../constants/strings'
 import AutoProdLogo from '../assets/AutoProdLogo.svg'
 
 const DatenschutzPage = () => {
@@ -27,11 +28,11 @@ const DatenschutzPage = () => {
               <section>
                 <h2 className="text-xl font-bold text-white mb-4">Verantwortlicher</h2>
                 <div className="space-y-1">
-                  <p><strong>Dennis Schielke</strong></p>
-                  <p>Musterstraße 123</p>
-                  <p>33602 Bielefeld</p>
-                  <p>Deutschland</p>
-                  <p>E-Mail: contact@autoprod.de</p>
+                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
+                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
+                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
+                  <p>{STRINGS.LEGAL_ADDRESS.country}</p>
+                  <p>E-Mail: {STRINGS.EMAIL}</p>
                 </div>
               </section>
 
@@ -89,11 +90,11 @@ const DatenschutzPage = () => {
               <section>
                 <h2 className="text-xl font-bold text-white mb-4">Data Controller</h2>
                 <div className="space-y-1">
-                  <p><strong>Dennis Schielke</strong></p>
-                  <p>Musterstraße 123</p>
-                  <p>33602 Bielefeld</p>
-                  <p>Germany</p>
-                  <p>Email: contact@autoprod.de</p>
+                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
+                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
+                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
+                  <p>{STRINGS.ADDRESS_COUNTRY_EN}</p>
+                  <p>Email: {STRINGS.EMAIL}</p>
                 </div>
               </section>
 

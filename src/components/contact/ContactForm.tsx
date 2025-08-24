@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useLanguage } from '../contexts/LanguageContext'
-import { STRINGS } from '../constants/strings'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { STRINGS } from '../../constants/strings'
 
 const ContactForm = () => {
   const { t } = useLanguage()

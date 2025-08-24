@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
-import HomeNavbar from '../navbar/HomeNavbar'
-import MobileMenu from '../navbar/MobileMenu'
+import HomeNavbar from '../components/navbar/HomeNavbar'
+import MobileMenu from '../components/navbar/MobileMenu'
 import { useLanguage } from '../contexts/LanguageContext'
-import type { MenuItem } from '../navbar/HomeNavbar'
+import type { MenuItem } from '../types'
 
 gsap.registerPlugin(TextPlugin)
 
