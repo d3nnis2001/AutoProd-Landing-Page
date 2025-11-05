@@ -2,7 +2,7 @@ export const STRINGS = {
   // Firma & Kontakt
   COMPANY_NAME: 'AutoProd',
   EMAIL: 'contact@autoprod.de',
-  PHONE: '+49 1590 6741594',
+  PHONE: '+49 1514 0490786',
   ADDRESS_STREET: 'Uelzener Str. 16',
   ADDRESS_CITY: '33719 Bielefeld',
   ADDRESS_COUNTRY_DE: 'Deutschland',

@@ -1,9 +1,17 @@
 import { useLanguage } from '../contexts/LanguageContext'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import { STRINGS } from '../constants/strings'
 import AutoProdLogo from '../assets/AutoProdLogo.svg'
 
 const ImpressumPage = () => {
-  const { language } = useLanguage()
+  const { language, t } = useLanguage()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1D1D1D] to-[#0F0F0F]">
@@ -15,106 +23,61 @@ const ImpressumPage = () => {
           </div>
           <div>
             <h1 className="text-3xl font-bold text-white">
-              {language === 'de' ? 'Impressum' : 'Legal Notice'}
+              {t.imprint.title}
             </h1>
-            <p className="text-white/60">AutoProd</p>
+            <p className="text-white/60">{STRINGS.COMPANY_NAME}</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="bg-[#1A1A1A] rounded-2xl p-8 border border-white/10">
-          {language === 'de' ? (
-            <div className="space-y-6 text-white/80 leading-relaxed">
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Angaben gemäß § 5 TMG</h2>
-                <div className="space-y-2">
-                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
-                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
-                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
-                  <p>{STRINGS.LEGAL_ADDRESS.country}</p>
-                </div>
-              </section>
+          <div className="space-y-6 text-white/80 leading-relaxed">
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.imprint.tmg}</h2>
+              <div className="space-y-2">
+                <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
+                <p>{STRINGS.LEGAL_ADDRESS.street}</p>
+                <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
+                <p>{language === 'de' ? STRINGS.LEGAL_ADDRESS.country : 'Germany'}</p>
+              </div>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Kontakt</h2>
-                <div className="space-y-2">
-                  <p><strong>E-Mail:</strong> {STRINGS.EMAIL}</p>
-                  <p><strong>Telefon:</strong> {STRINGS.PHONE}</p>
-                </div>
-              </section>
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.imprint.contact}</h2>
+              <div className="space-y-2">
+                <p><strong>{t.imprint.email}:</strong> {STRINGS.EMAIL}</p>
+                <p><strong>{t.imprint.phone}:</strong> {STRINGS.PHONE}</p>
+              </div>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Haftungsausschluss</h2>
-                <p>
-                  Die Inhalte dieser Website wurden sorgfältig erstellt. Für die Richtigkeit, 
-                  Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.
-                </p>
-                <p className="mt-4">
-                  Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. 
-                  Für diese fremden Inhalte kann daher keine Gewähr übernommen werden.
-                </p>
-              </section>
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.imprint.liability.title}</h2>
+              <p>{t.imprint.liability.content1}</p>
+              <p className="mt-4">{t.imprint.liability.content2}</p>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Urheberrecht</h2>
-                <p>
-                  Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten 
-                  unterliegen dem deutschen Urheberrecht. Downloads und Kopien dieser Seite sind 
-                  nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-                </p>
-              </section>
-            </div>
-          ) : (
-            <div className="space-y-6 text-white/80 leading-relaxed">
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Information pursuant to § 5 TMG</h2>
-                <div className="space-y-2">
-                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
-                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
-                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
-                  <p>Germany</p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Contact</h2>
-                <div className="space-y-2">
-                  <p><strong>Email:</strong> {STRINGS.EMAIL}</p>
-                  <p><strong>Phone:</strong> {STRINGS.PHONE}</p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Disclaimer</h2>
-                <p>
-                  The contents of this website have been created with great care. However, 
-                  no guarantee can be given for the accuracy, completeness and timeliness of the contents.
-                </p>
-                <p className="mt-4">
-                  Links to external third-party websites, over whose contents I have no influence. 
-                  Therefore, no guarantee can be assumed for these external contents.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Copyright</h2>
-                <p>
-                  The contents and works created by the site operator on these pages are subject 
-                  to German copyright law. Downloads and copies of this site are permitted for 
-                  private, non-commercial use only.
-                </p>
-              </section>
-            </div>
-          )}
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.imprint.copyright.title}</h2>
+              <p>{t.imprint.copyright.content}</p>
+            </section>
+          </div>
         </div>
 
         {/* Back Button */}
         <div className="mt-8 text-center">
-          <button 
-            onClick={() => window.history.back()}
+          <button
+            onClick={() => {
+              navigate('/')
+              setTimeout(() => {
+                const footerSection = document.querySelector('#footer')
+                if (footerSection) {
+                  footerSection.scrollIntoView({ behavior: 'smooth' })
+                }
+              }, 100)
+            }}
             className="px-6 py-3 bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white font-medium rounded-lg hover:scale-105 transition-transform"
           >
-            {language === 'de' ? '← Zurück' : '← Back'}
+            {t.imprint.back}
           </button>
         </div>
       </div>

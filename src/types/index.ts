@@ -41,8 +41,6 @@ export interface DetailedService {
   icon: ReactElement
   features: string[]
   examples: string[]
-  stats: ServiceStat
-  statsLabels: ServiceStatsLabels
 }
 
 export interface InteractiveService extends Service {

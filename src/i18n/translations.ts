@@ -23,68 +23,38 @@ export const translations = {
       titleAccent: 'Services',
       reporting: {
         title: 'Business Reporting',
-        description: 'Automatisierte Berichte & KPI-Dashboards',
+        description: 'Verschaffen Sie sich einen vollständigen Überblick über Ihr Unternehmen. Automatisch generierte Reports und Live Dashboards zeigen Ihnen alle wichtigen Kennzahlen auf einen Blick, jederzeit und überall abrufbar.',
         features: ['Echtzeit-Dashboards', 'KPI-Tracking', 'PDF/Excel Export', 'Automatischer Versand', 'Custom Templates', 'Forecast Analytics'],
-        stats: {
-          berichte: 'Berichte',
-          zeitErsparnis: 'Zeitersparnis',
-          datenquellen: 'Datenquellen'
-        },
         examples: ['Monatliche Umsatzberichte', 'Vertriebsperformance', 'Lagerbestandsreports', 'Projektcontrolling', 'Management Dashboards']
       },
       crm: {
         title: 'CRM Integration',
-        description: 'Kundenbeziehungen intelligent verwalten',
+        description: 'Behalten Sie den Überblick über alle Kundeninteraktionen und steuern Sie Ihren Vertrieb effizient. Von der ersten Kontaktaufnahme bis zum Abschluss, alle Informationen zentral an einem Ort.',
         features: ['Lead-Automation', 'Kundensegmentierung', 'Pipeline Management', 'E-Mail Kampagnen', 'Activity Tracking', 'Cross-Platform Sync'],
-        stats: {
-          leadKonversion: 'Lead-Konversion',
-          kundenkontakte: 'Kontakte',
-          automatisierung: 'Automatisiert'
-        },
         examples: ['Lead-Scoring', 'Follow-Up Sequenzen', 'Kundenhistorie', 'Sales Pipeline', 'Multi-Channel Kampagnen']
       },
       invoice: {
         title: 'Rechnungswesen',
-        description: 'Buchhaltung & Finanzprozesse automatisiert',
+        description: 'Digitalisieren Sie Ihre Buchhaltung komplett. Von der Angebotserstellung über die Rechnungsstellung bis zur Zahlungsüberwachung läuft alles automatisch, rechtssicher und DATEV kompatibel.',
         features: ['Rechnungserstellung', 'DATEV-Export', 'Zahlungserinnerungen', 'Gutschriften', 'Steuerberechnung', 'Bank-Sync'],
-        stats: {
-          rechnungen: 'Rechnungen',
-          fehlerquote: 'Fehlerquote',
-          zahlungsziel: 'Zahlungsziel'
-        },
         examples: ['Automatische Rechnungen', 'Mahnwesen', 'Spesenabrechnung', 'USt-Voranmeldung', 'Liquiditätsplanung']
       },
       survey: {
         title: 'Kunden-Feedback',
-        description: 'Umfragen & Bewertungsmanagement',
+        description: 'Sammeln und analysieren Sie Kundenmeinungen automatisch über alle Kanäle hinweg. Reagieren Sie schnell auf Feedback und verbessern Sie kontinuierlich Ihre Produkte und Services.',
         features: ['Multi-Channel Umfragen', 'NPS-Tracking', 'Sentiment-Analyse', 'Auto-Auswertung', 'Review Management', 'Alert-System'],
-        stats: {
-          antwortrate: 'Antwortrate',
-          umfragen: 'Umfragen',
-          npsScore: 'NPS Score'
-        },
         examples: ['Kundenzufriedenheit', 'Produkt-Feedback', 'Mitarbeiterbefragung', 'Event-Evaluation', 'Google Reviews']
       },
       offer: {
         title: 'Angebotsprozesse',
-        description: 'Von der Anfrage bis zum Auftrag',
+        description: 'Erstellen Sie professionelle Angebote in Minuten statt Stunden. Vom Erstkontakt über die Kalkulation bis zur Nachverfolgung, Ihr kompletter Angebotsprozess digital und effizient.',
         features: ['Kalkulations-Tools', 'Template Management', 'Genehmigungsworkflows', 'Versionskontrolle', 'E-Signatur', 'Nachfass-Automation'],
-        stats: {
-          angebote: 'Angebote',
-          abschlussrate: 'Abschlussrate',
-          bearbeitungszeit: 'Bearbeitungszeit'
-        },
         examples: ['Angebotskonfigurator', 'Preislisten', 'Rabatt-Genehmigung', 'Angebotsverfolgung', 'Win/Loss-Analyse']
       },
       hr: {
         title: 'Personalwesen',
-        description: 'HR-Prozesse digital & effizient',
+        description: 'Vereinfachen Sie Ihre HR Prozesse von der Einstellung bis zum Austritt. Digitale Workflows für Urlaubsanträge, Zeiterfassung und Mitarbeiterverwaltung sparen Zeit und reduzieren Papierkram.',
         features: ['Onboarding-Workflows', 'Zeiterfassung', 'Urlaubsverwaltung', 'Schulungsplanung', 'Performance Reviews', 'Dokumentenverwaltung'],
-        stats: {
-          mitarbeiter: 'Mitarbeiter',
-          prozesse: 'Prozesse automatisiert',
-          zeitersparnis: 'Zeitersparnis'
-        },
         examples: ['Digitales Onboarding', 'Krankmeldungen', 'Gehaltsabrechnung', 'Selbstservice', 'Recruiting-Pipeline']
       },
       coreFeatures: 'Kernfunktionen',
@@ -109,9 +79,9 @@ export const translations = {
       description: 'Unsere intuitive Business-App bietet Ihnen die volle Kontrolle über Ihre Automatisierungen. Verwalten Sie Workflows, überwachen Sie Performance und skalieren Sie Ihre Prozesse - alles in einer modernen, benutzerfreundlichen Oberfläche.',
       features: {
         dashboard: {
-          title: 'Dashboard Übersicht',
-          description: 'Behalten Sie alle Ihre Workflows im Blick',
-          highlights: ['Echtzeit-Monitoring', 'Performance Metriken', 'Fehler-Tracking']
+          title: 'Custom Frontend',
+          description: 'Maßgeschneiderte Benutzeroberflächen für Ihre Prozesse',
+          highlights: ['Individuelles Design', 'Prozess-spezifisch', 'Benutzerfreundlich']
         },
         workflow: {
           title: 'Workflow Management',
@@ -155,8 +125,8 @@ export const translations = {
     footer: {
       tagline: 'Transformieren Sie Ihr Business mit maßgeschneiderten Automatisierungslösungen. Von der ersten Idee bis zur finalen Implementierung.',
       followUs: 'Folgen Sie uns:',
-      services: 'Services',
-      serviceItems: ['Workflow Automation', 'API Integration', 'Custom Development', 'Support'],
+      services: 'Navigation',
+      serviceItems: ['Home', 'Services', 'Business App', 'Workflow', 'Kontakt'],
       contact: 'Kontakt',
       email: 'E-Mail',
       phone: 'Telefon',
@@ -177,6 +147,133 @@ export const translations = {
           coo: 'COO & Operations',
           cooDesc: 'Prozessoptimierung'
         }
+      }
+    },
+    imprint: {
+      title: 'Impressum',
+      tmg: 'Angaben gemäß § 5 TMG',
+      contact: 'Kontakt',
+      email: 'E-Mail',
+      phone: 'Telefon',
+      liability: {
+        title: 'Haftungsausschluss',
+        content1: 'Die Inhalte dieser Website wurden sorgfältig erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.',
+        content2: 'Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte kann daher keine Gewähr übernommen werden.'
+      },
+      copyright: {
+        title: 'Urheberrecht',
+        content: 'Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.'
+      },
+      back: '← Zurück'
+    },
+    privacy: {
+      title: 'Datenschutzerklärung',
+      responsible: {
+        title: 'Verantwortlich für die Datenverarbeitung',
+        content: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist:'
+      },
+      dataCollection: {
+        title: 'Welche Daten werden erhoben?',
+        content: 'Bei der Nutzung unserer Website können folgende Daten erhoben werden:',
+        items: ['Name und E-Mail-Adresse bei Kontaktanfragen', 'IP-Adresse und technische Daten beim Website-Besuch', 'Cookies und ähnliche Technologien']
+      },
+      dataUsage: {
+        title: 'Wie nutzen wir Ihre Daten?',
+        items: ['Beantwortung Ihrer Kontaktanfragen', 'Bereitstellung der Website-Funktionen', 'Verbesserung der Website-Sicherheit']
+      },
+      rights: {
+        title: 'Ihre Rechte',
+        content: 'Sie haben das Recht auf:',
+        items: ['Auskunft über Ihre gespeicherten Daten', 'Berichtigung unrichtiger Daten', 'Löschung Ihrer Daten', 'Einschränkung der Datenverarbeitung', 'Datenübertragbarkeit', 'Widerspruch gegen die Datenverarbeitung']
+      },
+      contact: {
+        title: 'Kontakt',
+        content: 'Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter:'
+      },
+      security: {
+        title: 'Sicherheit',
+        content: 'Diese Website nutzt SSL-Verschlüsselung zum Schutz Ihrer Daten. Wir verwenden keine Tracking-Tools oder Analyse-Software.'
+      },
+      back: '← Zurück'
+    },
+    qualification: {
+      progress: 'Schritt',
+      of: 'von',
+      back: 'Zurück',
+      next: 'Weiter',
+      submit: 'Absenden',
+      success: {
+        title: 'Vielen Dank!',
+        message: 'Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns in Kürze bei Ihnen.',
+        close: 'Schließen'
+      },
+      step1: {
+        title: 'Wie groß ist Ihr Unternehmen?',
+        subtitle: 'Anzahl der Mitarbeiter',
+        options: {
+          small: '1-10 Mitarbeiter',
+          medium: '11-50 Mitarbeiter',
+          large: '51-200 Mitarbeiter',
+          xlarge: '200+ Mitarbeiter'
+        }
+      },
+      step2: {
+        title: 'Welche Prozesse möchten Sie automatisieren?',
+        subtitle: 'Mehrfachauswahl möglich',
+        customLabel: 'Oder eigene Bereiche angeben:',
+        customPlaceholder: 'z.B. Logistik, Einkauf, Produktion...',
+        processes: {
+          invoicing: 'Rechnungswesen',
+          crm: 'CRM',
+          reporting: 'Business Reporting',
+          hr: 'HR/Personalwesen',
+          offer: 'Angebotserstellung',
+          feedback: 'Kunden-Feedback'
+        }
+      },
+      step3: {
+        title: 'Wie ist Ihr aktueller Automatisierungsgrad?',
+        subtitle: 'Nutzen Sie bereits Automatisierung?',
+        options: {
+          none: { label: 'Keine Automatisierung', desc: 'Alle Prozesse manuell' },
+          partial: { label: 'Teilweise automatisiert', desc: 'Einzelne Tools im Einsatz' },
+          advanced: { label: 'Fortgeschritten', desc: 'Mehrere Systeme integriert' }
+        }
+      },
+      step4: {
+        title: 'In welchem Budget-Rahmen planen Sie?',
+        subtitle: 'Monatliches Investment',
+        customLabel: 'Oder individuelles Budget angeben:',
+        customPlaceholder: 'z.B. 2.000€ - 4.000€ monatlich',
+        ranges: {
+          small: '500€ - 1.500€',
+          medium: '1.500€ - 3.500€',
+          large: '3.500€ - 7.500€',
+          enterprise: 'Ab 7.500€',
+          unsure: 'Noch unsicher'
+        }
+      },
+      step5: {
+        title: 'Wann möchten Sie starten?',
+        subtitle: 'Geplanter Projektzeitraum',
+        customLabel: 'Oder individuellen Zeitrahmen angeben:',
+        customPlaceholder: 'z.B. Q2 2025, Nach Urlaubssaison...',
+        timeframes: {
+          immediate: 'Sofort',
+          short: 'In 1-3 Monaten',
+          medium: 'In 3-6 Monaten',
+          long: 'Längerfristig'
+        }
+      },
+      step6: {
+        title: 'Wie können wir Sie erreichen?',
+        subtitle: 'Ihre Kontaktdaten',
+        email: 'E-Mail',
+        emailPlaceholder: 'ihre.email@beispiel.de',
+        name: 'Name (optional)',
+        namePlaceholder: 'Ihr Name',
+        company: 'Firma (optional)',
+        companyPlaceholder: 'Ihr Unternehmen'
       }
     }
   },
@@ -204,68 +301,38 @@ export const translations = {
       titleAccent: 'Services',
       reporting: {
         title: 'Business Reporting',
-        description: 'Automated reports & KPI dashboards',
+        description: 'Get a complete overview of your business. Automatically generated reports and live dashboards show you all important metrics at a glance, accessible anytime and anywhere.',
         features: ['Real-time Dashboards', 'KPI Tracking', 'PDF/Excel Export', 'Auto Distribution', 'Custom Templates', 'Forecast Analytics'],
-        stats: {
-          berichte: 'Reports',
-          zeitErsparnis: 'Time Saved',
-          datenquellen: 'Data Sources'
-        },
         examples: ['Monthly Revenue Reports', 'Sales Performance', 'Inventory Reports', 'Project Controlling', 'Management Dashboards']
       },
       crm: {
         title: 'CRM Integration',
-        description: 'Intelligent customer relationship management',
+        description: 'Keep track of all customer interactions and manage your sales efficiently. From first contact to closing, all information centrally in one place.',
         features: ['Lead Automation', 'Customer Segmentation', 'Pipeline Management', 'Email Campaigns', 'Activity Tracking', 'Cross-Platform Sync'],
-        stats: {
-          leadKonversion: 'Lead Conversion',
-          kundenkontakte: 'Contacts',
-          automatisierung: 'Automated'
-        },
         examples: ['Lead Scoring', 'Follow-Up Sequences', 'Customer History', 'Sales Pipeline', 'Multi-Channel Campaigns']
       },
       invoice: {
         title: 'Accounting',
-        description: 'Automated accounting & finance processes',
+        description: 'Fully digitize your accounting. From quote creation through invoicing to payment monitoring, everything runs automatically, legally compliant and DATEV compatible.',
         features: ['Invoice Generation', 'DATEV Export', 'Payment Reminders', 'Credit Notes', 'Tax Calculation', 'Bank Sync'],
-        stats: {
-          rechnungen: 'Invoices',
-          fehlerquote: 'Error Rate',
-          zahlungsziel: 'Payment Terms'
-        },
         examples: ['Automated Invoicing', 'Dunning Process', 'Expense Management', 'VAT Returns', 'Liquidity Planning']
       },
       survey: {
         title: 'Customer Feedback',
-        description: 'Survey & review management',
+        description: 'Automatically collect and analyze customer feedback across all channels. Respond quickly to feedback and continuously improve your products and services.',
         features: ['Multi-Channel Surveys', 'NPS Tracking', 'Sentiment Analysis', 'Auto Analysis', 'Review Management', 'Alert System'],
-        stats: {
-          antwortrate: 'Response Rate',
-          umfragen: 'Surveys',
-          npsScore: 'NPS Score'
-        },
         examples: ['Customer Satisfaction', 'Product Feedback', 'Employee Surveys', 'Event Evaluation', 'Google Reviews']
       },
       offer: {
         title: 'Quote Management',
-        description: 'From inquiry to order',
+        description: 'Create professional quotes in minutes instead of hours. From initial contact through calculation to follow up, your complete quote process digital and efficient.',
         features: ['Calculation Tools', 'Template Management', 'Approval Workflows', 'Version Control', 'E-Signature', 'Follow-up Automation'],
-        stats: {
-          angebote: 'Quotes',
-          abschlussrate: 'Close Rate',
-          bearbeitungszeit: 'Processing Time'
-        },
         examples: ['Quote Configurator', 'Price Lists', 'Discount Approval', 'Quote Tracking', 'Win/Loss Analysis']
       },
       hr: {
         title: 'Human Resources',
-        description: 'Digital & efficient HR processes',
+        description: 'Simplify your HR processes from hiring to departure. Digital workflows for leave requests, time tracking and employee management save time and reduce paperwork.',
         features: ['Onboarding Workflows', 'Time Tracking', 'Leave Management', 'Training Planning', 'Performance Reviews', 'Document Management'],
-        stats: {
-          mitarbeiter: 'Employees',
-          prozesse: 'Processes automated',
-          zeitersparnis: 'Time Saved'
-        },
         examples: ['Digital Onboarding', 'Sick Leave Management', 'Payroll Preparation', 'Self-Service', 'Recruiting Pipeline']
       },
       coreFeatures: 'Core Features',
@@ -290,9 +357,9 @@ export const translations = {
       description: 'Our intuitive business app gives you full control over your automations. Manage workflows, monitor performance and scale your processes - all in a modern, user-friendly interface.',
       features: {
         dashboard: {
-          title: 'Dashboard Overview',
-          description: 'Keep track of all your workflows',
-          highlights: ['Real-time Monitoring', 'Performance Metrics', 'Error Tracking']
+          title: 'Custom Frontend',
+          description: 'Tailored user interfaces for your processes',
+          highlights: ['Individual Design', 'Process-specific', 'User-friendly']
         },
         workflow: {
           title: 'Workflow Management',
@@ -336,8 +403,8 @@ export const translations = {
     footer: {
       tagline: 'Transform your business with tailored automation solutions. From initial idea to final implementation.',
       followUs: 'Follow us:',
-      services: 'Services',
-      serviceItems: ['Workflow Automation', 'API Integration', 'Custom Development', 'Support'],
+      services: 'Navigation',
+      serviceItems: ['Home', 'Services', 'Business App', 'Workflow', 'Contact'],
       contact: 'Contact',
       email: 'Email',
       phone: 'Phone',
@@ -358,6 +425,133 @@ export const translations = {
           coo: 'COO & Operations',
           cooDesc: 'Process Optimization'
         }
+      }
+    },
+    imprint: {
+      title: 'Legal Notice',
+      tmg: 'Information pursuant to § 5 TMG',
+      contact: 'Contact',
+      email: 'Email',
+      phone: 'Phone',
+      liability: {
+        title: 'Disclaimer',
+        content1: 'The contents of this website have been created with great care. However, no guarantee can be given for the accuracy, completeness and timeliness of the contents.',
+        content2: 'Links to external third-party websites, over whose contents I have no influence. Therefore, no guarantee can be assumed for these external contents.'
+      },
+      copyright: {
+        title: 'Copyright',
+        content: 'The contents and works created by the site operator on these pages are subject to German copyright law. Downloads and copies of this site are permitted for private, non-commercial use only.'
+      },
+      back: '← Back'
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      responsible: {
+        title: 'Responsible for Data Processing',
+        content: 'Responsible for data processing on this website is:'
+      },
+      dataCollection: {
+        title: 'What Data is Collected?',
+        content: 'When using our website, the following data may be collected:',
+        items: ['Name and email address for contact inquiries', 'IP address and technical data when visiting the website', 'Cookies and similar technologies']
+      },
+      dataUsage: {
+        title: 'How Do We Use Your Data?',
+        items: ['Answering your contact inquiries', 'Providing website functions', 'Improving website security']
+      },
+      rights: {
+        title: 'Your Rights',
+        content: 'You have the right to:',
+        items: ['Information about your stored data', 'Correction of incorrect data', 'Deletion of your data', 'Restriction of data processing', 'Data portability', 'Object to data processing']
+      },
+      contact: {
+        title: 'Contact',
+        content: 'For questions about privacy, please contact us at:'
+      },
+      security: {
+        title: 'Security',
+        content: 'This website uses SSL encryption to protect your data. We do not use tracking tools or analysis software.'
+      },
+      back: '← Back'
+    },
+    qualification: {
+      progress: 'Step',
+      of: 'of',
+      back: 'Back',
+      next: 'Next',
+      submit: 'Submit',
+      success: {
+        title: 'Thank you!',
+        message: 'Your request has been successfully submitted. We will contact you shortly.',
+        close: 'Close'
+      },
+      step1: {
+        title: 'How large is your company?',
+        subtitle: 'Number of employees',
+        options: {
+          small: '1-10 employees',
+          medium: '11-50 employees',
+          large: '51-200 employees',
+          xlarge: '200+ employees'
+        }
+      },
+      step2: {
+        title: 'Which processes would you like to automate?',
+        subtitle: 'Multiple selection possible',
+        customLabel: 'Or specify your own areas:',
+        customPlaceholder: 'e.g. Logistics, Purchasing, Production...',
+        processes: {
+          invoicing: 'Invoicing',
+          crm: 'CRM',
+          reporting: 'Business Reporting',
+          hr: 'HR/Personnel',
+          offer: 'Offer Creation',
+          feedback: 'Customer Feedback'
+        }
+      },
+      step3: {
+        title: 'What is your current automation level?',
+        subtitle: 'Are you already using automation?',
+        options: {
+          none: { label: 'No automation', desc: 'All processes manual' },
+          partial: { label: 'Partially automated', desc: 'Individual tools in use' },
+          advanced: { label: 'Advanced', desc: 'Multiple systems integrated' }
+        }
+      },
+      step4: {
+        title: 'What is your budget range?',
+        subtitle: 'Monthly investment',
+        customLabel: 'Or specify individual budget:',
+        customPlaceholder: 'e.g. 2,000€ - 4,000€ monthly',
+        ranges: {
+          small: '500€ - 1,500€',
+          medium: '1,500€ - 3,500€',
+          large: '3,500€ - 7,500€',
+          enterprise: 'From 7,500€',
+          unsure: 'Still uncertain'
+        }
+      },
+      step5: {
+        title: 'When would you like to start?',
+        subtitle: 'Planned project timeline',
+        customLabel: 'Or specify individual timeframe:',
+        customPlaceholder: 'e.g. Q2 2025, After vacation season...',
+        timeframes: {
+          immediate: 'Immediately',
+          short: 'In 1-3 months',
+          medium: 'In 3-6 months',
+          long: 'Long-term'
+        }
+      },
+      step6: {
+        title: 'How can we reach you?',
+        subtitle: 'Your contact details',
+        email: 'Email',
+        emailPlaceholder: 'your.email@example.com',
+        name: 'Name (optional)',
+        namePlaceholder: 'Your name',
+        company: 'Company (optional)',
+        companyPlaceholder: 'Your company'
       }
     }
   }

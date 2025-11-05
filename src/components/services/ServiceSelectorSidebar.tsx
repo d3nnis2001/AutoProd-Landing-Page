@@ -21,8 +21,10 @@ const ServiceSelectorSidebar = ({ services, activeIndex, onServiceSelect }: Serv
             >
               <div className="h-full p-4 lg:p-5 rounded-xl bg-[#1A1A1A] border border-white/10 hover:border-[#FF763B]/40 hover:bg-[#1F1F1F] transition-colors duration-200">
                 <div className="flex items-center gap-3 lg:gap-4">
-                  <div className="p-2 lg:p-3 rounded-xl bg-white/5">
-                    {service.icon}
+                  <div className="p-2 lg:p-3 rounded-xl bg-gradient-to-br from-[#FF763B]/10 to-[#FFBE56]/10 border border-[#FF763B]/20">
+                    <div className="text-transparent bg-gradient-to-r from-[#FF763B] to-[#FFBE56] bg-clip-text">
+                      {service.icon}
+                    </div>
                   </div>
                   <div className="min-w-0 flex-1">
                     <h4 className="text-white font-bold text-sm lg:text-base mb-1">{service.title}</h4>

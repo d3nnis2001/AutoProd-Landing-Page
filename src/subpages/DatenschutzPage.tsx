@@ -1,9 +1,17 @@
 import { useLanguage } from '../contexts/LanguageContext'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import { STRINGS } from '../constants/strings'
 import AutoProdLogo from '../assets/AutoProdLogo.svg'
 
 const DatenschutzPage = () => {
-  const { language } = useLanguage()
+  const { language, t } = useLanguage()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1D1D1D] to-[#0F0F0F]">
@@ -15,148 +23,84 @@ const DatenschutzPage = () => {
           </div>
           <div>
             <h1 className="text-3xl font-bold text-white">
-              {language === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy'}
+              {t.privacy.title}
             </h1>
-            <p className="text-white/60">AutoProd</p>
+            <p className="text-white/60">{STRINGS.COMPANY_NAME}</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="bg-[#1A1A1A] rounded-2xl p-8 border border-white/10">
-          {language === 'de' ? (
-            <div className="space-y-6 text-white/80 leading-relaxed">
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Verantwortlicher</h2>
-                <div className="space-y-1">
-                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
-                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
-                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
-                  <p>{STRINGS.LEGAL_ADDRESS.country}</p>
-                  <p>E-Mail: {STRINGS.EMAIL}</p>
-                </div>
-              </section>
+          <div className="space-y-6 text-white/80 leading-relaxed">
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.privacy.responsible.title}</h2>
+              <p className="mb-4">{t.privacy.responsible.content}</p>
+              <div className="space-y-1">
+                <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
+                <p>{STRINGS.LEGAL_ADDRESS.street}</p>
+                <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
+                <p>{language === 'de' ? STRINGS.LEGAL_ADDRESS.country : 'Germany'}</p>
+                <p>{t.imprint.email}: {STRINGS.EMAIL}</p>
+              </div>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Welche Daten erfassen wir?</h2>
-                <p className="mb-4">
-                  <strong>Kontaktformular:</strong> Wenn Sie uns eine Nachricht über das Kontaktformular senden, 
-                  speichern wir Ihren Namen, Ihre E-Mail-Adresse und Ihre Nachricht, um Ihre Anfrage zu bearbeiten.
-                </p>
-                <p className="mb-4">
-                  <strong>Technische Daten:</strong> Beim Besuch der Website werden automatisch technische 
-                  Informationen wie IP-Adresse, Browser-Typ und Zugriffszeit erfasst.
-                </p>
-              </section>
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.privacy.dataCollection.title}</h2>
+              <p className="mb-4">{t.privacy.dataCollection.content}</p>
+              <ul className="list-disc list-inside space-y-2 text-white/70">
+                {t.privacy.dataCollection.items.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Wofür nutzen wir Ihre Daten?</h2>
-                <ul className="list-disc list-inside space-y-2 text-white/70">
-                  <li>Beantwortung Ihrer Kontaktanfragen</li>
-                  <li>Bereitstellung der Website-Funktionen</li>
-                  <li>Verbesserung der Website-Sicherheit</li>
-                </ul>
-              </section>
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.privacy.dataUsage.title}</h2>
+              <ul className="list-disc list-inside space-y-2 text-white/70">
+                {t.privacy.dataUsage.items.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Ihre Rechte</h2>
-                <p className="mb-4">Sie haben das Recht auf:</p>
-                <ul className="list-disc list-inside space-y-2 text-white/70">
-                  <li>Auskunft über Ihre gespeicherten Daten</li>
-                  <li>Berichtigung unrichtiger Daten</li>
-                  <li>Löschung Ihrer Daten</li>
-                  <li>Einschränkung der Datenverarbeitung</li>
-                  <li>Widerspruch gegen die Datenverarbeitung</li>
-                </ul>
-              </section>
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.privacy.rights.title}</h2>
+              <p className="mb-4">{t.privacy.rights.content}</p>
+              <ul className="list-disc list-inside space-y-2 text-white/70">
+                {t.privacy.rights.items.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Speicherdauer</h2>
-                <p>
-                  Kontaktanfragen werden gelöscht, sobald sie vollständig bearbeitet sind und keine rechtlichen 
-                  Aufbewahrungspflichten bestehen. Technische Daten werden nach spätestens 7 Tagen gelöscht.
-                </p>
-              </section>
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.privacy.contact.title}</h2>
+              <p className="mb-2">{t.privacy.contact.content}</p>
+              <p className="text-white/70">{STRINGS.EMAIL}</p>
+            </section>
 
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Sicherheit</h2>
-                <p>
-                  Diese Website nutzt SSL-Verschlüsselung zum Schutz Ihrer Daten. Wir setzen keine Tracking-Tools 
-                  oder Analyse-Software ein.
-                </p>
-              </section>
-            </div>
-          ) : (
-            <div className="space-y-6 text-white/80 leading-relaxed">
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Data Controller</h2>
-                <div className="space-y-1">
-                  <p><strong>{STRINGS.COMPANY_OWNER}</strong></p>
-                  <p>{STRINGS.LEGAL_ADDRESS.street}</p>
-                  <p>{STRINGS.LEGAL_ADDRESS.zipCode} {STRINGS.LEGAL_ADDRESS.city}</p>
-                  <p>{STRINGS.ADDRESS_COUNTRY_EN}</p>
-                  <p>Email: {STRINGS.EMAIL}</p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">What Data Do We Collect?</h2>
-                <p className="mb-4">
-                  <strong>Contact Form:</strong> When you send us a message via the contact form, 
-                  we store your name, email address and message to process your inquiry.
-                </p>
-                <p className="mb-4">
-                  <strong>Technical Data:</strong> When visiting the website, technical information 
-                  such as IP address, browser type and access time is automatically collected.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">How Do We Use Your Data?</h2>
-                <ul className="list-disc list-inside space-y-2 text-white/70">
-                  <li>Answering your contact inquiries</li>
-                  <li>Providing website functions</li>
-                  <li>Improving website security</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Your Rights</h2>
-                <p className="mb-4">You have the right to:</p>
-                <ul className="list-disc list-inside space-y-2 text-white/70">
-                  <li>Information about your stored data</li>
-                  <li>Correction of incorrect data</li>
-                  <li>Deletion of your data</li>
-                  <li>Restriction of data processing</li>
-                  <li>Object to data processing</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Storage Duration</h2>
-                <p>
-                  Contact inquiries are deleted once they have been fully processed and no legal 
-                  retention obligations exist. Technical data is deleted after 7 days at the latest.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-bold text-white mb-4">Security</h2>
-                <p>
-                  This website uses SSL encryption to protect your data. We do not use tracking tools 
-                  or analysis software.
-                </p>
-              </section>
-            </div>
-          )}
+            <section>
+              <h2 className="text-xl font-bold text-white mb-4">{t.privacy.security.title}</h2>
+              <p>{t.privacy.security.content}</p>
+            </section>
+          </div>
         </div>
 
         {/* Back Button */}
         <div className="mt-8 text-center">
-          <button 
-            onClick={() => window.history.back()}
+          <button
+            onClick={() => {
+              navigate('/')
+              setTimeout(() => {
+                const footerSection = document.querySelector('#footer')
+                if (footerSection) {
+                  footerSection.scrollIntoView({ behavior: 'smooth' })
+                }
+              }, 100)
+            }}
             className="px-6 py-3 bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white font-medium rounded-lg hover:scale-105 transition-transform"
           >
-            {language === 'de' ? '← Zurück' : '← Back'}
+            {t.privacy.back}
           </button>
         </div>
       </div>

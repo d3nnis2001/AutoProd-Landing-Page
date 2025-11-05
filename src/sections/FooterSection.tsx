@@ -4,8 +4,18 @@ import { STRINGS } from '../constants/strings'
 
 const FooterSection = () => {
   const { t } = useLanguage()
+
+  const scrollToTop = () => {
+    const heroSection = document.querySelector('#home')
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   return (
-    <footer className="relative h-screen snap-start snap-always flex items-center bg-gradient-to-b from-[#1D1D1D] via-[#0F0F0F] to-[#000000] overflow-hidden">
+    <footer id="footer" className="relative h-screen snap-start snap-always flex items-center bg-gradient-to-b from-[#1D1D1D] via-[#0F0F0F] to-[#000000] overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,118,59,0.03)_0%,transparent_70%)]"></div>
       </div>
@@ -18,25 +28,22 @@ const FooterSection = () => {
               <div className="w-[140px] h-[140px] xl:w-[160px] xl:h-[160px] rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-[#FF763B]/20 overflow-hidden shadow-xl mb-4">
                 <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">DS</div>
               </div>
-              <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">Dennis Schielke</h4>
-              <p className="text-base xl:text-lg text-white/80">{t.footer.team.roles.cto}</p>
+              <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">{STRINGS.TEAM.DENNIS.name}</h4>
               <p className="text-sm xl:text-base text-white/50">{t.footer.team.roles.ctoDesc}</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="w-[140px] h-[140px] xl:w-[160px] xl:h-[160px] rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-[#FFBE56]/20 overflow-hidden shadow-xl mb-4">
-                <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">PG</div>
+                <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">{STRINGS.TEAM.PHILIP.initials}</div>
               </div>
-              <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">Philip der Süße</h4>
-              <p className="text-base xl:text-lg text-white/80">CFO</p>
-              <p className="text-sm xl:text-base text-white/50">Finanz & Buchhaltung</p>
+              <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">{STRINGS.TEAM.PHILIP.name}</h4>
+              <p className="text-sm xl:text-base text-white/50">{t.footer.team.roles.cfoDesc}</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="w-[140px] h-[140px] xl:w-[160px] xl:h-[160px] rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-[#FFD700]/20 overflow-hidden shadow-xl mb-4">
-                <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">MK</div>
+                <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">{STRINGS.TEAM.MAX.initials}</div>
               </div>
-              <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">Max Krämer</h4>
-              <p className="text-base xl:text-lg text-white/80">COO & Operations</p>
-              <p className="text-sm xl:text-base text-white/50">Prozessoptimierung</p>
+              <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">{STRINGS.TEAM.MAX.name}</h4>
+              <p className="text-sm xl:text-base text-white/50">{t.footer.team.roles.cooDesc}</p>
             </div>
           </div>
         </div>
@@ -49,14 +56,13 @@ const FooterSection = () => {
               <div className="w-10 h-10 sm:w-14 sm:h-14 lg:w-12 lg:h-12 flex items-center justify-center">
                 <img src={AutoProdLogo} alt="AutoProd Logo" className="w-full h-full" />
               </div>
-              <span className="text-xl sm:text-3xl lg:text-2xl font-bold text-white">AutoProd</span>
+              <span className="text-xl sm:text-3xl lg:text-2xl font-bold text-white">{STRINGS.COMPANY_NAME}</span>
             </div>
             <p className="text-white/60 text-sm sm:text-lg lg:text-lg leading-relaxed mb-4 sm:mb-8 lg:mb-10 max-w-md">
-              Transformieren Sie Ihr Business mit maßgeschneiderten Automatisierungslösungen. 
-              Von der ersten Idee bis zur finalen Implementierung.
+              {t.footer.tagline}
             </p>
             <div className="flex items-center gap-3 sm:gap-4">
-              <span className="text-white/40 text-sm sm:text-base lg:text-sm hidden sm:inline">Folgen Sie uns:</span>
+              <span className="text-white/40 text-sm sm:text-base lg:text-sm hidden sm:inline">{t.footer.followUs}</span>
               <div className="flex gap-3">
                 <a href="#" className="w-10 h-10 bg-gradient-to-r from-[#FF763B]/10 to-[#FFBE56]/10 rounded-full flex items-center justify-center border border-white/10 hover:border-[#FF763B]/30 transition-all duration-300">
                   <svg className="w-5 h-5 text-white/60 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -77,41 +83,42 @@ const FooterSection = () => {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Navigation */}
           <div>
-            <h4 className="text-white font-bold text-base sm:text-xl lg:text-lg mb-3 sm:mb-8 lg:mb-6">Services</h4>
+            <h4 className="text-white font-bold text-base sm:text-xl lg:text-lg mb-3 sm:mb-8 lg:mb-6">{t.footer.services}</h4>
             <ul className="space-y-2 sm:space-y-4 lg:space-y-3">
-              <li><a href="#" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">Workflow Automation</a></li>
-              <li><a href="#" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">API Integration</a></li>
-              <li><a href="#" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">Custom Development</a></li>
-              <li><a href="#" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">Support</a></li>
+              <li><a href="#home" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">{t.footer.serviceItems[0]}</a></li>
+              <li><a href="#services" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">{t.footer.serviceItems[1]}</a></li>
+              <li><a href="#webapp" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">{t.footer.serviceItems[2]}</a></li>
+              <li><a href="#workflow" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">{t.footer.serviceItems[3]}</a></li>
+              <li><a href="#contact" className="text-white/60 text-sm sm:text-lg lg:text-base hover:text-[#FF763B] transition-colors duration-300">{t.footer.serviceItems[4]}</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-bold text-base sm:text-xl lg:text-lg mb-3 sm:mb-8 lg:mb-6">Kontakt</h4>
+            <h4 className="text-white font-bold text-base sm:text-xl lg:text-lg mb-3 sm:mb-8 lg:mb-6">{t.footer.contact}</h4>
             <div className="space-y-2.5 sm:space-y-5 lg:space-y-4">
               <div>
-                <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">E-Mail</div>
+                <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">{t.footer.email}</div>
                 <div className="text-white font-medium text-sm sm:text-lg lg:text-base">{STRINGS.EMAIL}</div>
               </div>
               <div>
-                <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">Telefon</div>
+                <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">{t.footer.phone}</div>
                 <div className="text-white font-medium text-sm sm:text-lg lg:text-base">{STRINGS.PHONE}</div>
               </div>
               <div>
-                <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">Standort</div>
+                <div className="text-white/60 text-xs sm:text-base lg:text-sm mb-0.5 sm:mb-1 lg:mb-1">{t.footer.location}</div>
                 <div className="text-white font-medium text-sm sm:text-lg lg:text-base">{STRINGS.ADDRESS_CITY}</div>
               </div>
             </div>
 
             {/* Back to top button - Hidden on mobile */}
-            <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            <button
+              onClick={scrollToTop}
               className="hidden sm:block group relative px-4 py-2 bg-gradient-to-r from-[#FF763B]/10 to-[#FFBE56]/10 rounded-full border border-white/10 hover:scale-110 transition-all duration-300 mt-6"
             >
-              <span className="text-white group-hover:text-[#FF763B] transition-colors duration-300 text-sm">↑ Nach oben</span>
+              <span className="text-white group-hover:text-[#FF763B] transition-colors duration-300 text-sm">{t.footer.backToTop}</span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#FF763B]/5 to-[#FFBE56]/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </div>
@@ -120,11 +127,11 @@ const FooterSection = () => {
         {/* Bottom Bar - Responsive */}
         <div className="border-t border-white/10 pt-6 sm:pt-8 lg:pt-10 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
           <div className="text-white/40 text-sm sm:text-base lg:text-sm order-2 sm:order-1">
-            © 2025 AutoProd. Alle Rechte vorbehalten.
+            {t.footer.copyright}
           </div>
           <div className="flex gap-6 text-sm sm:text-base lg:text-sm order-1 sm:order-2">
-            <a href="/impressum" className="text-white/40 hover:text-white/60 transition-colors duration-300">Impressum</a>
-            <a href="/datenschutz" className="text-white/40 hover:text-white/60 transition-colors duration-300">Datenschutz</a>
+            <a href="/impressum" className="text-white/40 hover:text-white/60 transition-colors duration-300">{t.footer.legal.imprint}</a>
+            <a href="/datenschutz" className="text-white/40 hover:text-white/60 transition-colors duration-300">{t.footer.legal.privacy}</a>
           </div>
         </div>
       </div>

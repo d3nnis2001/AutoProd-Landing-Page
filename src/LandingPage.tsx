@@ -44,7 +44,7 @@ const HomepageModular = () => {
       <ImageShowcaseSection />
 
       <WorkflowDemoSection />
-      
+
       <ContactSection />
       
       <FooterSection />

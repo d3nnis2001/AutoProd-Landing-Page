@@ -14,12 +14,6 @@ export const useDetailedServices = () => {
         </svg>
       ),
       features: t.services.reporting.features,
-      stats: {
-        berichte: '1000+/Monat',
-        zeitErsparnis: '85%',
-        datenquellen: '25+'
-      },
-      statsLabels: t.services.reporting.stats,
       examples: t.services.reporting.examples
     },
     {
@@ -32,12 +26,6 @@ export const useDetailedServices = () => {
         </svg>
       ),
       features: t.services.crm.features,
-      stats: {
-        leadKonversion: '+45%',
-        kundenkontakte: '50k+',
-        automatisierung: '70%'
-      },
-      statsLabels: t.services.crm.stats,
       examples: t.services.crm.examples
     },
     {
@@ -50,12 +38,6 @@ export const useDetailedServices = () => {
         </svg>
       ),
       features: t.services.invoice.features,
-      stats: {
-        rechnungen: '5000+/Monat',
-        fehlerquote: '<0.1%',
-        zahlungsziel: '-8 Tage'
-      },
-      statsLabels: t.services.invoice.stats,
       examples: t.services.invoice.examples
     },
     {
@@ -68,12 +50,6 @@ export const useDetailedServices = () => {
         </svg>
       ),
       features: t.services.survey.features,
-      stats: {
-        antwortrate: '65%',
-        umfragen: '200+/Monat',
-        npsScore: '+42'
-      },
-      statsLabels: t.services.survey.stats,
       examples: t.services.survey.examples
     },
     {
@@ -86,12 +62,6 @@ export const useDetailedServices = () => {
         </svg>
       ),
       features: t.services.offer.features,
-      stats: {
-        angebote: '300+/Monat',
-        abschlussrate: '+35%',
-        bearbeitungszeit: '-60%'
-      },
-      statsLabels: t.services.offer.stats,
       examples: t.services.offer.examples
     },
     {
@@ -104,12 +74,6 @@ export const useDetailedServices = () => {
         </svg>
       ),
       features: t.services.hr.features,
-      stats: {
-        mitarbeiter: '500+',
-        prozesse: '25',
-        zeitersparnis: '40h/Woche'
-      },
-      statsLabels: t.services.hr.stats,
       examples: t.services.hr.examples
     }
   ]

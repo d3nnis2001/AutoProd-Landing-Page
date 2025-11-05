@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
 import HomeNavbar from '../components/navbar/HomeNavbar'
 import MobileMenu from '../components/navbar/MobileMenu'
+import QualificationModal from '../components/QualificationModal'
 import { useLanguage } from '../contexts/LanguageContext'
 import type { MenuItem } from '../types'
 
@@ -13,10 +14,11 @@ interface HeroSectionProps {
   onContactClick?: () => void
 }
 
-const HeroSection = ({ onGetStartedClick, onContactClick }: HeroSectionProps) => {
+const HeroSection = ({ onContactClick }: HeroSectionProps) => {
   const { t } = useLanguage()
   const [activeMenu, setActiveMenu] = useState('Home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isQualificationModalOpen, setIsQualificationModalOpen] = useState(false)
   
   const handleNavClick = useCallback((item: MenuItem) => {
     setActiveMenu(item.name)
@@ -148,8 +150,8 @@ const HeroSection = ({ onGetStartedClick, onContactClick }: HeroSectionProps) =>
           </div>
 
           <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center">
-            <button 
-              onClick={onGetStartedClick}
+            <button
+              onClick={() => setIsQualificationModalOpen(true)}
               className="group relative px-8 py-4 text-lg font-bold rounded-full bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#FF763B]/40"
             >
               <span className="relative z-20">{t.hero.cta.getStarted}</span>
@@ -171,6 +173,11 @@ const HeroSection = ({ onGetStartedClick, onContactClick }: HeroSectionProps) =>
           </div>
         </div>
       </div>
+
+      <QualificationModal
+        isOpen={isQualificationModalOpen}
+        onClose={() => setIsQualificationModalOpen(false)}
+      />
     </section>
   )
 }

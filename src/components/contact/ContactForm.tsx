@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { STRINGS } from '../../constants/strings'
+import { EMAILJS_CONFIG } from '../../config/emailjs'
 
 const ContactForm = () => {
   const { t } = useLanguage()
@@ -19,19 +21,35 @@ const ContactForm = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    setTimeout(() => {
+    // HELLYYYYY
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.CONTACT_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'contact@autoprod.de'
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      )
+
       setIsSubmitting(false)
       setIsSubmitted(true)
       setFormData({ name: '', email: '', message: '' })
-      
+
       setTimeout(() => {
         setIsSubmitted(false)
       }, 3000)
-    }, 1500)
+    } catch (error) {
+      console.error('Failed to send email:', error)
+      setIsSubmitting(false)
+      alert('Es gab einen Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.')
+    }
   }
 
   return (

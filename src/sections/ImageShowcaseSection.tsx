@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { useLanguage } from '../contexts/LanguageContext'
+import QualificationModal from '../components/QualificationModal'
 import DashboardImage from '../../src/assets/showcase_webapp/Dashboard Overview.png'
 import WorkflowImage from '../../src/assets/showcase_webapp/Workflow_Overview.png'
 import SupportImage from '../../src/assets/showcase_webapp/Support_Section.png'
@@ -8,6 +9,7 @@ import SupportImage from '../../src/assets/showcase_webapp/Support_Section.png'
 const ImageShowcaseSection = () => {
   const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState(0)
+  const [isQualificationModalOpen, setIsQualificationModalOpen] = useState(false)
   
   const sectionRef = useRef(null)
   const floatingRef = useRef<HTMLDivElement>(null)
@@ -157,7 +159,10 @@ const ImageShowcaseSection = () => {
           </div>
 
           {/* CTA Button */}
-          <button className="w-full px-3 sm:px-4 py-2.5 sm:py-3 md:py-3.5 bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white text-sm sm:text-base md:text-lg font-medium rounded-lg">
+          <button
+            onClick={() => setIsQualificationModalOpen(true)}
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 md:py-3.5 bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white text-sm sm:text-base md:text-lg font-medium rounded-lg"
+          >
             {t.businessApp.cta}
           </button>
         </div>
@@ -206,7 +211,10 @@ const ImageShowcaseSection = () => {
               ))}
             </div>
 
-            <button className="mt-8 px-6 py-3 bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white font-medium rounded-xl hover:scale-105 transition-transform">
+            <button
+              onClick={() => setIsQualificationModalOpen(true)}
+              className="mt-8 px-6 py-3 bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white font-medium rounded-xl hover:scale-105 transition-transform"
+            >
               {t.businessApp.cta}
             </button>
           </div>
@@ -226,6 +234,11 @@ const ImageShowcaseSection = () => {
           </div>
         </div>
       </div>
+
+      <QualificationModal
+        isOpen={isQualificationModalOpen}
+        onClose={() => setIsQualificationModalOpen(false)}
+      />
     </section>
   )
 }
