@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && git subtree push --prefix dist origin gh-pages"
+    "deploy": "npm run build && cd dist && git init && git add . && git commit -m 'Deploy' && git branch -M gh-pages && (git remote add origin https://github.com/d3nnis2001/AutoProd-Landing-Page.git 2>/dev/null || git remote set-url origin https://github.com/d3nnis2001/AutoProd-Landing-Page.git) && git push -f origin gh-pages && cd .. && rm -rf dist/.git"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

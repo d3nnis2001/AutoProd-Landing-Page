@@ -32,26 +32,29 @@ const QualificationModal = ({ isOpen, onClose }: QualificationModalProps) => {
     try {
       // Prepare email template parameters
       const emailParams = {
+        name: formData.name || 'Nicht angegeben',
+        contact_name: formData.name || 'Nicht angegeben',
+        contact_email: formData.email,
+        contact_company: formData.company || 'Nicht angegeben',
         company_size: formData.companySize,
+        automation_level: formData.automationLevel,
         processes: formData.processes.length > 0
           ? formData.processes.join(', ')
-          : formData.customProcess,
-        automation_level: formData.automationLevel,
-        budget: formData.budget || formData.customBudget,
-        timeframe: formData.timeframe || formData.customTimeframe,
-        contact_email: formData.email,
-        contact_name: formData.name || 'Nicht angegeben',
-        contact_company: formData.company || 'Nicht angegeben',
-        to_email: 'contact@autoprod.de'
+          : (formData.customProcess || 'Nicht angegeben'),
+        budget: formData.customBudget || formData.budget,
+        timeframe: formData.customTimeframe || formData.timeframe
       }
 
-      await emailjs.send(
+      console.log('Sending qualification email with params:', emailParams)
+
+      const result = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.QUALIFICATION_TEMPLATE_ID,
         emailParams,
         EMAILJS_CONFIG.PUBLIC_KEY
       )
 
+      console.log('Email sent successfully:', result)
       setIsSubmitted(true)
     } catch (error) {
       console.error('Failed to send qualification email:', error)

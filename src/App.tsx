@@ -16,9 +16,7 @@ const router = createBrowserRouter([
     path: "/datenschutz",
     element: <DatenschutzPage />,
   },
-], {
-  basename: '/AutoProd-Landing-Page'
-});
+]);
 
 function App() {
   return <RouterProvider router={router} />

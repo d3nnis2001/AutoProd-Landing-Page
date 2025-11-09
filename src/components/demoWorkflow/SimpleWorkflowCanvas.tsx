@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SimpleWorkflowNode from './SimpleWorkflowNode'
-import ChatPopup from './ChatPopup'
-import MetricsDisplay from './MetricsDisplay'
+import FlipCardsExpertise from './FlipCardsExpertise'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 interface WorkflowStep {
   id: string
@@ -11,134 +11,158 @@ interface WorkflowStep {
   color: string
 }
 
-const SimpleWorkflowCanvas = () => {
+interface SimpleWorkflowCanvasProps {
+  showExpertise: boolean
+  setShowExpertise: (show: boolean) => void
+}
+
+const SimpleWorkflowCanvas = ({ showExpertise, setShowExpertise }: SimpleWorkflowCanvasProps) => {
+  const { t } = useLanguage()
   const [isFlowing, setIsFlowing] = useState(false)
   const [activeNodeIndex, setActiveNodeIndex] = useState(-1)
-  const [userQuestion, setUserQuestion] = useState('')
-  const [showNotification, setShowNotification] = useState(false)
-  const [showChat, setShowChat] = useState(false)
-  const [savedQuestion, setSavedQuestion] = useState('')
-  const [showMetrics, setShowMetrics] = useState(false)
 
   // SVG Icons
-  const WebhookIcon = () => (
+  const IdeaIcon = () => (
+    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    </svg>
+  )
+
+  const PlanningIcon = () => (
+    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+    </svg>
+  )
+
+  const CodeIcon = () => (
+    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+    </svg>
+  )
+
+  const OptimizeIcon = () => (
+    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  )
+
+  const SuccessIcon = () => (
     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>
-  )
-  
-  const AIIcon = () => (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  )
-  
-  const SwitchIcon = () => (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-    </svg>
-  )
-  
-  const SlackIcon = () => (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-    </svg>
-  )
-  
-  const DatabaseIcon = () => (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
     </svg>
   )
 
   // Workflow steps
   const steps: WorkflowStep[] = [
     {
-      id: 'webhook',
-      icon: <WebhookIcon />,
-      label: 'Webhook',
-      sublabel: 'Frage empfangen',
+      id: 'idea',
+      icon: <IdeaIcon />,
+      label: t.workflow.steps.idea.label,
+      sublabel: t.workflow.steps.idea.sublabel,
       color: '#FF763B'
     },
     {
-      id: 'ai',
-      icon: <AIIcon />,
-      label: 'OpenAI',
-      sublabel: 'Frage verstehen',
+      id: 'planning',
+      icon: <PlanningIcon />,
+      label: t.workflow.steps.planning.label,
+      sublabel: t.workflow.steps.planning.sublabel,
       color: '#FF763B'
     },
     {
-      id: 'condition',
-      icon: <SwitchIcon />,
-      label: 'Router',
-      sublabel: 'Kategorie prüfen',
+      id: 'development',
+      icon: <CodeIcon />,
+      label: t.workflow.steps.development.label,
+      sublabel: t.workflow.steps.development.sublabel,
       color: '#FF763B'
     },
     {
-      id: 'slack',
-      icon: <SlackIcon />,
-      label: 'Slack',
-      sublabel: 'Team benachrichtigen',
+      id: 'optimization',
+      icon: <OptimizeIcon />,
+      label: t.workflow.steps.optimization.label,
+      sublabel: t.workflow.steps.optimization.sublabel,
       color: '#FF763B'
     },
     {
-      id: 'database',
-      icon: <DatabaseIcon />,
-      label: 'Airtable',
-      sublabel: 'Lead speichern',
+      id: 'success',
+      icon: <SuccessIcon />,
+      label: t.workflow.steps.success.label,
+      sublabel: t.workflow.steps.success.sublabel,
       color: '#FF763B'
     }
   ]
 
   const startFlow = () => {
-    if (isFlowing || !userQuestion.trim()) return
-    
+    if (isFlowing || showExpertise) return
+
     setIsFlowing(true)
     setActiveNodeIndex(-1)
-    setSavedQuestion(userQuestion) // Save the question for the chat
-    
+
     // Start animation after a brief delay
     setTimeout(() => {
       setActiveNodeIndex(0)
-      
+
       // Animate through nodes
       for (let i = 1; i < steps.length; i++) {
         setTimeout(() => {
           setActiveNodeIndex(i)
-        }, i * 800)
+        }, i * 600)
       }
-      
-      // Reset after animation completes and show notification
+
+      // After animation completes, show expertise section
       setTimeout(() => {
         setIsFlowing(false)
         setActiveNodeIndex(-1)
-        setUserQuestion('') // Clear input after completion
-        
-        // Show metrics first, then notification with delay
-        setTimeout(() => {
-          setShowMetrics(true)
-          // Show notification after longer delay
-          setTimeout(() => {
-            setShowNotification(true)
-          }, 1200)
-        }, 500)
-      }, steps.length * 800 + 500)
+        setShowExpertise(true)
+      }, steps.length * 600 + 400)
     }, 100)
   }
 
-  const handleNotificationClick = () => {
-    setShowNotification(false)
-    setShowChat(true)
-  }
+  // Expertise items
+  const expertiseItems = [
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      title: 'n8n Workflow Automation',
+      description: 'Komplexe Geschäftsprozesse nahtlos automatisieren'
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      title: 'Webentwicklung',
+      description: 'Moderne, skalierbare Web-Anwendungen'
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
+      title: 'IT-Sicherheit & Compliance',
+      description: 'DSGVO-konforme Lösungen & Datenschutz'
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      title: 'Datenanalyse & BI',
+      description: 'Intelligente Auswertungen für bessere Entscheidungen'
+    }
+  ]
 
   return (
     <>
-      {/* Metrics Display */}
-      <MetricsDisplay show={showMetrics} />
-      
       <div className="w-full max-w-6xl mx-auto relative z-10 px-4">
         {/* Workflow Container */}
-        <div className="relative bg-[#1A1A1A] rounded-2xl lg:rounded-3xl border border-white/10 p-4 sm:p-6 md:p-8 lg:p-12">
+        <div className={`relative bg-[#1A1A1A] rounded-2xl lg:rounded-3xl border border-white/10 p-4 sm:p-6 md:p-8 lg:p-12 transition-all duration-700 ${showExpertise ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`} style={{ display: showExpertise ? 'none' : 'block' }}>
         {/* Background pattern */}
         <div 
           className="absolute inset-0 opacity-[0.02] pointer-events-none"
@@ -152,7 +176,7 @@ const SimpleWorkflowCanvas = () => {
         />
 
         {/* Workflow - Responsive */}
-        <div className="relative hidden md:flex items-center justify-center gap-0">
+        <div className="relative hidden md:flex items-center justify-center">
           {steps.map((step, index) => (
             <React.Fragment key={step.id}>
               <SimpleWorkflowNode
@@ -163,11 +187,15 @@ const SimpleWorkflowCanvas = () => {
                 isActive={activeNodeIndex >= index}
               />
               {index < steps.length - 1 && (
-                <div className={`h-0.5 w-12 lg:w-16 transition-all duration-500 ${
-                  isFlowing && activeNodeIndex > index 
-                    ? 'bg-gradient-to-r from-[#FF763B] to-[#FFBE56]' 
-                    : 'bg-white/10'
-                }`} />
+                <div className="relative w-12 lg:w-16 mx-2 h-0.5 bg-white/10 overflow-hidden">
+                  <div
+                    className={`absolute left-0 top-0 h-full bg-gradient-to-r from-[#FF763B] to-[#FFBE56] shadow-lg shadow-[#FF763B]/50 transition-all duration-[400ms] ease-out ${
+                      isFlowing && activeNodeIndex > index
+                        ? 'w-full opacity-100'
+                        : 'w-0 opacity-0'
+                    }`}
+                  />
+                </div>
               )}
             </React.Fragment>
           ))}
@@ -207,75 +235,60 @@ const SimpleWorkflowCanvas = () => {
           </div>
         </div>
 
-        {/* Input and Button Section */}
+        {/* Button Section */}
         <div className="relative z-20 mt-6 md:mt-8 lg:mt-12">
           <div className="flex justify-center">
-            <div className="w-full max-w-2xl flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <input
-                type="text"
-                value={userQuestion}
-                onChange={(e) => setUserQuestion(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && startFlow()}
-                placeholder="Stellen Sie uns eine Frage..."
-                className="flex-1 px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 bg-gray-900/50 border border-gray-700 rounded-xl sm:rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-[#FF763B] focus:ring-2 focus:ring-[#FF763B]/20 transition-all text-sm sm:text-base md:text-lg"
-                disabled={isFlowing}
-              />
-              <button
-                type="button"
-                onClick={startFlow}
-                disabled={isFlowing || !userQuestion.trim()}
-                className={`
-                  px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base
-                  ${isFlowing || !userQuestion.trim()
-                    ? 'bg-gray-800 text-gray-500 cursor-not-allowed' 
-                    : 'bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white sm:hover:scale-105 hover:shadow-lg hover:shadow-[#FF763B]/30 cursor-pointer'
-                  }
-                `}
-              >
-                <span>{isFlowing ? 'Verarbeitet...' : 'Senden'}</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Message Notification Popup - Responsive position */}
-      {showNotification && (
-        <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 md:bottom-16 md:right-16 z-50">
-          <div className="relative">
-            {/* Pulse animation behind button */}
-            <div className="absolute inset-0 bg-[#FF763B] rounded-full opacity-75" style={{
-              animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite'
-            }}></div>
-            
-            {/* Notification button */}
             <button
-              className="relative bg-gradient-to-br from-[#FF763B] to-[#FFBE56] text-white rounded-full p-5 shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center"
-              onClick={handleNotificationClick}
+              type="button"
+              onClick={startFlow}
+              disabled={isFlowing}
+              className={`
+                px-8 md:px-12 py-4 md:py-5 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-3 text-base md:text-lg
+                ${isFlowing
+                  ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-[#FF763B] to-[#FFBE56] text-white hover:scale-105 hover:shadow-2xl hover:shadow-[#FF763B]/40 cursor-pointer'
+                }
+              `}
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              <span>{isFlowing ? t.workflow.running : t.workflow.learnMore}</span>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {!showExpertise ? (
+                  <>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </>
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                )}
               </svg>
-              
-              {/* Red notification dot */}
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full"></div>
             </button>
           </div>
         </div>
-      )}
-      
-      {/* Chat Popup */}
-      {showChat && (
-        <ChatPopup 
-          question={savedQuestion} 
-          onClose={() => setShowChat(false)} 
-        />
-      )}
-      
       </div>
+
+      {/* Expertise Section - Fades in after workflow */}
+      {showExpertise && <FlipCardsExpertise />}
+      </div>
+
+      <style>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </>
   )
 }

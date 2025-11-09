@@ -60,9 +60,104 @@ export const translations = {
       coreFeatures: 'Kernfunktionen',
       useCases: 'Anwendungsfälle'
     },
+    expertise: {
+      title: 'Unsere',
+      titleAccent: 'Expertise',
+      subtitle: 'Von der Idee bis zur fertigen Lösung – mit modernster Technologie und langjähriger Erfahrung',
+      hoverHint: 'Tippen für Details',
+      n8n: {
+        title: 'n8n Workflow Automation',
+        tagline: 'Prozesse ohne Code automatisieren',
+        features: [
+          'Custom Workflow-Entwicklung',
+          'API-Integrationen & Webhooks',
+          'Self-Hosted Solutions',
+          'Echtzeit-Automatisierung'
+        ]
+      },
+      ai: {
+        title: 'KI & AI Integration',
+        tagline: 'Intelligente Automatisierung',
+        features: [
+          'ChatGPT & Claude APIs',
+          'Custom AI Workflows',
+          'Intelligente Datenverarbeitung',
+          'Machine Learning Pipelines'
+        ]
+      },
+      web: {
+        title: 'Webentwicklung',
+        tagline: 'Moderne Web-Anwendungen',
+        features: [
+          'Vue oder React & TypeScript',
+          'Responsive & Mobile-First',
+          'API Development & Integration',
+          'Progressive Web Apps'
+        ]
+      },
+      security: {
+        title: 'IT-Sicherheit & Compliance',
+        tagline: 'DSGVO-konforme Lösungen',
+        features: [
+          'Datenschutz-Compliance',
+          'Sichere Cloud-Infrastruktur',
+          'End-to-End Verschlüsselung',
+          'Security Audits & Monitoring'
+        ]
+      },
+      data: {
+        title: 'Datenanalyse & BI',
+        tagline: 'Datengetriebene Entscheidungen',
+        features: [
+          'Custom Dashboards & Reports',
+          'Echtzeit-Datenvisualisierung',
+          'ETL & Data Pipelines',
+          'Predictive Analytics'
+        ]
+      },
+      consulting: {
+        title: 'Beratung & Consulting',
+        tagline: 'Individuelle Digitalisierung',
+        features: [
+          'Digitalisierungs-Strategie',
+          'Prozessanalyse & Optimierung',
+          'Tech-Stack Beratung',
+          'Langfristige Betreuung'
+        ]
+      }
+    },
     workflow: {
       title: 'Workflow Automation',
       subtitle: 'Entdecken Sie, wie n8n komplexe Prozesse automatisiert',
+      runButton: 'Workflow starten',
+      running: 'Wird geladen...',
+      learnMore: 'Erfahre mehr über uns',
+      steps: {
+        idea: {
+          label: 'Idee',
+          sublabel: 'Vision entwickeln'
+        },
+        planning: {
+          label: 'Planung',
+          sublabel: 'Konzept erstellen'
+        },
+        development: {
+          label: 'Entwicklung',
+          sublabel: 'Lösung bauen'
+        },
+        optimization: {
+          label: 'Optimierung',
+          sublabel: 'Perfektionieren'
+        },
+        success: {
+          label: 'Erfolg',
+          sublabel: 'Live gehen'
+        }
+      },
+      expertise: {
+        title: 'Unsere Expertise',
+        subtitle: 'Von der Idee bis zur fertigen Lösung'
+      },
       demo: {
         trigger: 'Webhook Trigger',
         gpt: 'ChatGPT Analyse',
@@ -341,6 +436,35 @@ export const translations = {
     workflow: {
       title: 'Workflow Automation',
       subtitle: 'Discover how n8n automates complex processes',
+      runButton: 'Run Workflow',
+      running: 'Loading...',
+      learnMore: 'Learn More About Us',
+      steps: {
+        idea: {
+          label: 'Idea',
+          sublabel: 'Develop vision'
+        },
+        planning: {
+          label: 'Planning',
+          sublabel: 'Create concept'
+        },
+        development: {
+          label: 'Development',
+          sublabel: 'Build solution'
+        },
+        optimization: {
+          label: 'Optimization',
+          sublabel: 'Perfect it'
+        },
+        success: {
+          label: 'Success',
+          sublabel: 'Go live'
+        }
+      },
+      expertise: {
+        title: 'Our Expertise',
+        subtitle: 'From idea to finished solution'
+      },
       demo: {
         trigger: 'Webhook Trigger',
         gpt: 'ChatGPT Analysis',
@@ -473,6 +597,72 @@ export const translations = {
         content: 'This website uses SSL encryption to protect your data. We do not use tracking tools or analysis software.'
       },
       back: '← Back'
+    },
+    expertise: {
+      title: 'Our',
+      titleAccent: 'Expertise',
+      subtitle: 'From idea to finished solution – with cutting-edge technology and years of experience',
+      hoverHint: 'Tap for details',
+      n8n: {
+        title: 'n8n Workflow Automation',
+        tagline: 'Automate processes without code',
+        features: [
+          'Custom Workflow Development',
+          'API Integrations & Webhooks',
+          'Self-Hosted Solutions',
+          'Real-time Automation'
+        ]
+      },
+      ai: {
+        title: 'AI & ML Integration',
+        tagline: 'Intelligent automation',
+        features: [
+          'ChatGPT & Claude APIs',
+          'Custom AI Workflows',
+          'Intelligent Data Processing',
+          'Machine Learning Pipelines'
+        ]
+      },
+      web: {
+        title: 'Web Development',
+        tagline: 'Modern web applications',
+        features: [
+          'Vue or React & TypeScript',
+          'Responsive & Mobile-First',
+          'API Development & Integration',
+          'Progressive Web Apps'
+        ]
+      },
+      security: {
+        title: 'IT Security & Compliance',
+        tagline: 'GDPR-compliant solutions',
+        features: [
+          'Data Protection Compliance',
+          'Secure Cloud Infrastructure',
+          'End-to-End Encryption',
+          'Security Audits & Monitoring'
+        ]
+      },
+      data: {
+        title: 'Data Analytics & BI',
+        tagline: 'Data-driven decisions',
+        features: [
+          'Custom Dashboards & Reports',
+          'Real-time Data Visualization',
+          'ETL & Data Pipelines',
+          'Predictive Analytics'
+        ]
+      },
+      consulting: {
+        title: 'Consulting & Strategy',
+        tagline: 'Individual digitalization',
+        features: [
+          'Digitalization Strategy',
+          'Process Analysis & Optimization',
+          'Tech Stack Consulting',
+          'Long-term Support'
+        ]
+      }
     },
     qualification: {
       progress: 'Step',

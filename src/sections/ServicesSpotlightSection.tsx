@@ -33,10 +33,10 @@ const ServicesSpotlightSection = () => {
   }, [])
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       id="services"
-      className="relative min-h-screen snap-start snap-always flex items-start pt-12 md:pt-20 lg:pt-24 pb-12 md:pb-20 bg-[#1D1D1D]"
+      className="relative h-screen sm:min-h-screen snap-start snap-always flex items-center sm:items-start sm:pt-12 md:pt-20 lg:pt-24 pb-4 sm:pb-12 md:pb-20 bg-[#1D1D1D] overflow-hidden"
     >
       <ServicesBackground />
 

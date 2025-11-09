@@ -24,7 +24,6 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // HELLYYYYY
     try {
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
