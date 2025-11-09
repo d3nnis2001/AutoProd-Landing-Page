@@ -1,4 +1,3 @@
-import React from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
 import N8nIcon from '../../assets/icons/n8nicon.svg'
 import AiIcon from '../../assets/icons/aiicon.svg'
