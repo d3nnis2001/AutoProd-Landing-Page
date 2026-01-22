@@ -7,28 +7,75 @@ import ContactDesktopLayout from '../components/contact/ContactDesktopLayout'
 
 const ContactSection = () => {
   const [activeTab, setActiveTab] = useState(0)
+  const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
-  
+
   useEffect(() => {
-    if (titleRef.current) {
-      gsap.fromTo(titleRef.current.children,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
-      )
-    }
-    
-    if (cardsRef.current) {
-      gsap.fromTo(cardsRef.current.children,
-        { opacity: 0, y: 40, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.2, delay: 0.3, ease: "power3.out" }
-      )
+    if (!sectionRef.current || !titleRef.current || !cardsRef.current) return
+
+    // Set initial states - slide from left/right (subtle)
+    gsap.set(titleRef.current, { opacity: 0, x: -20 })
+    const cards = gsap.utils.toArray(cardsRef.current.children) as HTMLElement[]
+    // Left card from left, right card from right
+    gsap.set(cards[0], { opacity: 0, x: -25 })
+    if (cards[1]) gsap.set(cards[1], { opacity: 0, x: 25 })
+
+    let hasAnimated = false
+
+    // Use IntersectionObserver for snap-scroll compatibility
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true
+
+            // Slide in header from left
+            gsap.to(titleRef.current, {
+              opacity: 1,
+              x: 0,
+              duration: 0.5,
+              ease: "power2.out",
+              delay: 0.1
+            })
+
+            // Slide in cards from opposite sides
+            gsap.to(cards[0], {
+              opacity: 1,
+              x: 0,
+              duration: 0.5,
+              ease: "power2.out",
+              delay: 0.2
+            })
+
+            if (cards[1]) {
+              gsap.to(cards[1], {
+                opacity: 1,
+                x: 0,
+                duration: 0.5,
+                ease: "power2.out",
+                delay: 0.3
+              })
+            }
+          }
+        })
+      },
+      {
+        threshold: 0.25
+      }
+    )
+
+    observer.observe(sectionRef.current)
+
+    return () => {
+      observer.disconnect()
     }
   }, [])
   
   return (
-    <section 
-      id="contact" 
+    <section
+      ref={sectionRef}
+      id="contact"
       className="relative h-screen snap-start snap-always bg-gradient-to-b from-[#171717] to-[#0F0F0F] flex items-center overflow-hidden"
     >
       <ContactBackground />

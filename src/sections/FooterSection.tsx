@@ -1,4 +1,7 @@
 import AutoProdLogo from '../../src/assets/AutoProdLogo.svg'
+import DennisImg from '../assets/us/Dennis Schielke.png'
+import PhilipImg from '../assets/us/Philip.png'
+import DavidImg from '../assets/us/David.png'
 import { useLanguage } from '../contexts/LanguageContext'
 import { STRINGS } from '../constants/strings'
 
@@ -26,21 +29,21 @@ const FooterSection = () => {
           <div className="grid grid-cols-3 gap-12 xl:gap-20">
             <div className="flex flex-col items-center text-center">
               <div className="w-[140px] h-[140px] xl:w-[160px] xl:h-[160px] rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-[#FF763B]/20 overflow-hidden shadow-xl mb-4">
-                <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">DS</div>
+                <img src={DennisImg} alt={STRINGS.TEAM.DENNIS.name} className="w-full h-full object-cover" />
               </div>
               <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">{STRINGS.TEAM.DENNIS.name}</h4>
               <p className="text-sm xl:text-base text-white/50">{t.footer.team.roles.ctoDesc}</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="w-[140px] h-[140px] xl:w-[160px] xl:h-[160px] rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-[#FFBE56]/20 overflow-hidden shadow-xl mb-4">
-                <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">{STRINGS.TEAM.PHILIP.initials}</div>
+                <img src={PhilipImg} alt={STRINGS.TEAM.PHILIP.name} className="w-full h-full object-cover" />
               </div>
               <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">{STRINGS.TEAM.PHILIP.name}</h4>
               <p className="text-sm xl:text-base text-white/50">{t.footer.team.roles.cfoDesc}</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="w-[140px] h-[140px] xl:w-[160px] xl:h-[160px] rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-[#FFD700]/20 overflow-hidden shadow-xl mb-4">
-                <div className="w-full h-full flex items-center justify-center text-white/40 text-5xl xl:text-6xl font-light">{STRINGS.TEAM.MAX.initials}</div>
+                <img src={DavidImg} alt={STRINGS.TEAM.MAX.name} className="w-full h-full object-cover" />
               </div>
               <h4 className="text-xl xl:text-2xl font-bold text-white mb-1">{STRINGS.TEAM.MAX.name}</h4>
               <p className="text-sm xl:text-base text-white/50">{t.footer.team.roles.cooDesc}</p>

@@ -54,23 +54,23 @@ const FlipCardsExpertise = () => {
   ]
 
   return (
-    <div className="w-full max-w-7xl mx-auto relative z-10 px-4 animate-fade-in">
+    <div className="w-full max-w-7xl mx-auto relative z-10 px-3 sm:px-4 animate-fade-in">
       {/* Header */}
-      <div className="text-center mb-6 sm:mb-8 md:mb-12">
-        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-black text-white mb-2 sm:mb-3">
+      <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12">
+        <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-1.5 sm:mb-2">
           {t.expertise.title} <span className="bg-gradient-to-r from-[#FF763B] to-[#FFBE56] bg-clip-text text-transparent">{t.expertise.titleAccent}</span>
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-white/60 max-w-2xl mx-auto px-4">
+        <p className="text-sm sm:text-sm md:text-base lg:text-lg text-white/60 max-w-2xl mx-auto px-2 sm:px-4">
           {t.expertise.subtitle}
         </p>
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-5 lg:gap-6">
         {expertiseCards.map((card, index) => (
           <div
             key={card.id}
-            className="group perspective-1000 h-64 sm:h-72"
+            className="group perspective-1000 h-48 sm:h-56 md:h-64 lg:h-72"
             style={{
               animation: `slideIn 0.6s ease-out ${index * 0.08}s both`
             }}
@@ -82,24 +82,24 @@ const FlipCardsExpertise = () => {
                   {/* Gradient Overlay on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#FF763B]/0 to-[#FFBE56]/0 group-hover:from-[#FF763B]/10 group-hover:to-[#FFBE56]/5 transition-all duration-500" />
 
-                  <div className="relative w-full h-full p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center">
+                  <div className="relative w-full h-full p-2 sm:p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center text-center">
                     {/* Icon Container */}
-                    <div className="mb-2 sm:mb-3 group-hover:scale-110 group-active:scale-110 transition-all duration-500">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center">
+                    <div className="mb-1 sm:mb-2 md:mb-3 group-hover:scale-110 group-active:scale-110 transition-all duration-500">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 flex items-center justify-center">
                         {card.icon}
                       </div>
                     </div>
 
                     {/* Title & Tagline */}
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-1 sm:mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#FF763B] group-hover:to-[#FFBE56] group-hover:bg-clip-text group-active:text-transparent group-active:bg-gradient-to-r group-active:from-[#FF763B] group-active:to-[#FFBE56] group-active:bg-clip-text transition-all duration-300">
+                    <h3 className="text-[10px] sm:text-sm md:text-base lg:text-xl font-bold text-white mb-0.5 sm:mb-1 md:mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#FF763B] group-hover:to-[#FFBE56] group-hover:bg-clip-text group-active:text-transparent group-active:bg-gradient-to-r group-active:from-[#FF763B] group-active:to-[#FFBE56] group-active:bg-clip-text transition-all duration-300 leading-tight">
                       {card.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-white/50 group-hover:text-white/70 group-active:text-white/70 transition-colors duration-300">
+                    <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-white/50 group-hover:text-white/70 group-active:text-white/70 transition-colors duration-300 leading-tight">
                       {card.tagline}
                     </p>
 
                     {/* Hover Hint */}
-                    <div className="mt-3 sm:mt-4 text-[10px] sm:text-xs text-white/30 group-hover:text-[#FF763B]/60 group-active:text-[#FF763B]/60 transition-colors duration-300">
+                    <div className="mt-1 sm:mt-2 md:mt-3 lg:mt-4 text-[7px] sm:text-[9px] md:text-[10px] lg:text-xs text-white/30 group-hover:text-[#FF763B]/60 group-active:text-[#FF763B]/60 transition-colors duration-300">
                       {t.expertise.hoverHint}
                     </div>
                   </div>
@@ -114,23 +114,23 @@ const FlipCardsExpertise = () => {
               {/* Back Side */}
               <div className="absolute inset-0 backface-hidden rotate-y-180">
                 <div className="w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-[#FF763B]/10 to-[#FFBE56]/10 backdrop-blur-md border border-[#FF763B]/30">
-                  <div className="w-full h-full p-4 sm:p-5 md:p-6 flex flex-col justify-center">
-                    <h3 className="text-base sm:text-lg font-bold bg-gradient-to-r from-[#FF763B] to-[#FFBE56] bg-clip-text text-transparent mb-3 sm:mb-4 md:mb-5">
+                  <div className="w-full h-full p-2 sm:p-3 md:p-4 lg:p-6 flex flex-col justify-center">
+                    <h3 className="text-[10px] sm:text-sm md:text-base lg:text-lg font-bold bg-gradient-to-r from-[#FF763B] to-[#FFBE56] bg-clip-text text-transparent mb-1.5 sm:mb-2 md:mb-3 lg:mb-5 leading-tight">
                       {card.title}
                     </h3>
-                    <ul className="space-y-2 sm:space-y-2.5 md:space-y-3">
+                    <ul className="space-y-1 sm:space-y-1.5 md:space-y-2 lg:space-y-3">
                       {card.features.map((feature, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start text-xs sm:text-sm text-white/90"
+                          className="flex items-start text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-white/90 leading-tight"
                           style={{
                             animation: `fadeInLeft 0.3s ease-out ${idx * 0.1}s both`
                           }}
                         >
-                          <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 mt-0.5 flex-shrink-0 text-[#FF763B]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                          <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 mr-1 sm:mr-1.5 md:mr-2 lg:mr-3 mt-0.5 flex-shrink-0 text-[#FF763B]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          <span>{feature}</span>
+                          <span className="flex-1">{feature}</span>
                         </li>
                       ))}
                     </ul>

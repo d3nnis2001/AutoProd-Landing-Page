@@ -76,12 +76,12 @@ export const translations = {
         ]
       },
       ai: {
-        title: 'KI & AI Integration',
+        title: 'KI Integration',
         tagline: 'Intelligente Automatisierung',
         features: [
           'ChatGPT & Claude APIs',
           'Custom AI Workflows',
-          'Intelligente Datenverarbeitung',
+          'Zero Data Retention',
           'Machine Learning Pipelines'
         ]
       },
